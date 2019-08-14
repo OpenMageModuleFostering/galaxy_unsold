@@ -3,7 +3,7 @@
     "type": "magento-module",
     "license": "Open-Software-License-(OSL)",
     "homepage": "",
-    "description": "Provide unsold product information of your store between selected dates.",
+    "description": "Business intelligent information about the products in an online store that have been unsold for some time ",
     "authors": [
     {
         "name": "Vivek",

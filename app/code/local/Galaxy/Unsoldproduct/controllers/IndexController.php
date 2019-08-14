@@ -1,47 +1,37 @@
 <?php
+/**
+ * Galaxy
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Galaxyweblinks.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.galaxyweblinks.com
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category 	Galaxy
+ * @package 	Galaxy_Unsold
+ * @copyright 	Copyright (c) 2013 Galaxy (http://www.galaxyweblinks.com/)
+ * @license 	http://www.galaxyweblinks.com
+ */
+
+/**
+ * Unsoldproduct Indexcontroller front
+ * 
+ * @category 	Galaxy
+ * @package 	Galaxy_Unsold
+ * @author  	Galaxy Developer
+ */
 class Galaxy_Unsoldproduct_IndexController extends Mage_Core_Controller_Front_Action
 {
     public function indexAction()
     {
     	
-    	/*
-    	 * Load an object by id 
-    	 * Request looking like:
-    	 * http://site.com/unsoldproduct?id=15 
-    	 *  or
-    	 * http://site.com/unsoldproduct/id/15 	
-    	 */
-    	/* 
-		$unsoldproduct_id = $this->getRequest()->getParam('id');
-
-  		if($unsoldproduct_id != null && $unsoldproduct_id != '')	{
-			$unsoldproduct = Mage::getModel('unsoldproduct/unsoldproduct')->load($unsoldproduct_id)->getData();
-		} else {
-			$unsoldproduct = null;
-		}	
-		*/
-		
-		 /*
-    	 * If no param we load a the last created item
-    	 */ 
-    	/*
-    	if($unsoldproduct == null) {
-			$resource = Mage::getSingleton('core/resource');
-			$read= $resource->getConnection('core_read');
-			$unsoldproductTable = $resource->getTableName('unsoldproduct');
-			
-			$select = $read->select()
-			   ->from($unsoldproductTable,array('unsoldproduct_id','title','content','status'))
-			   ->where('status',1)
-			   ->order('created_time DESC') ;
-			   
-			$unsoldproduct = $read->fetchRow($select);
-		}
-		Mage::register('unsoldproduct', $unsoldproduct);
-		*/
-
-			
-		$this->loadLayout();     
+    	$this->loadLayout();     
 		$this->renderLayout();
     }
 }

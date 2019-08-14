@@ -1,0 +1,101 @@
+<?php
+
+/* phtml file to show form on admin panel with two fields
+it will show list of product unsold between given dates */
+
+$to="";
+$from="";
+$to = $this->getRequest()->getParam('report_to');
+$from = $this->getRequest()->getParam('report_from');
+if($to !="" && $from !="")
+{
+	// call model function getUnsoldproductslists to get product unsold list between date
+	$products = Mage::getModel('unsoldproduct/unsoldproduct')->getUnsoldproductslists($from,$to);
+	
+}
+?>
+<h1><?php echo $this->__('Unsold Product between date') ?></h1>
+   
+<form action="<?php echo $this->getUrl('unsoldproduct/adminhtml_index/post/');?>"  method="get" id="form-validate" >
+  <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+<table width="100%" border="0" cellpadding="10" cellspacing="10" >
+	<tr>
+		<td>From:&nbsp;</td>
+		<td><div class="f-left">
+                    <div><input type="text" style="width:5em" value="<?php echo $from;?>" name="report_from" id="period_date_from" class="input-text no-changes required-entry"> <img class="v-middle" alt="Select Date" id="period_date_from_trig" title="Select Date" src="<?php echo Mage::getBaseUrl('skin');?>adminhtml/default/default/images/grid-cal.gif">&nbsp;&nbsp;</div>
+                    <div id="period_date_from_advaice"></div>
+                </div></td>
+	</tr>
+	<tr>
+		<td>To:&nbsp;</td>
+		<td><div class="f-left">
+                    <div><input type="text" style="width:5em" value="<?php echo $to;?>" name="report_to" id="period_date_to" class="input-text no-changes required-entry"> <img alt="Select Date" id="period_date_to_trig" title="Select Date" class="v-middle" src="<?php echo Mage::getBaseUrl('skin');?>adminhtml/default/default/images/grid-cal.gif">&nbsp;&nbsp;</div>
+                    <div id="period_date_to_advaice"></div>
+                </div></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><input type="submit"  name="do" value="Get Products"  /></td>
+	</tr>
+</table>
+<?php
+// iterate thourgh each product 
+ if($products){?>
+<table>
+	<tr>
+		<th>S No</th>
+		<th>Name</th>
+		<th>Views</th>
+	</tr>
+	<?php
+		$cnt=1;
+		foreach($products as $pro)
+		{
+		 
+		// code to get product views count between given date
+		
+		$product = Mage::getModel('catalog/product')->load($pro['id']);
+		$data=explode("/",$from);
+		$from = $data[2].'-'.$data[1].'-'.$data[0];
+		$data1=explode("/",$to);
+		$to = $data1[2].'-'.$data1[1].'-'.$data1[0];
+		
+		$productId = $pro['id']; 
+ 
+		$viewedProducts = Mage::getResourceModel('reports/product_collection')
+                ->addViewsCount($from, $to)
+                ->addAttributeToFilter('entity_id', array('in' => array($productId)));
+
+		       $views=0;
+				foreach($viewedProducts as $productviews) {
+					$views = $productviews->getData('views');
+				}
+			?>
+			<tr>
+				<td><?php echo $cnt;?></td>
+				<td><a href="<?php echo Mage::getBaseUrl();?>admin/catalog_product/edit/id/<?php echo $pro['id'];?>/key/<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" target="_blank"><?php echo $product->getName();?></a></td>
+				<td><?php echo $views;?></td>
+			</tr>
+		<?php $cnt++; }
+	?>
+</table>
+<?php } ?>
+</form>
+<script type="text/javascript">
+                
+                Calendar.setup({
+                    inputField : 'period_date_from',
+                    ifFormat : '%m/%e/%Y',
+                    button : 'period_date_from_trig',
+                    align : 'Bl',
+                    singleClick : true
+                });
+                Calendar.setup({
+                    inputField : 'period_date_to',
+                    ifFormat : '%m/%e/%Y',
+                    button : 'period_date_to_trig',
+                    align : 'Bl',
+                    singleClick : true
+                });
+                
+                </script>
