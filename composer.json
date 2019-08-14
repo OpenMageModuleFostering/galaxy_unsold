@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Galaxy_Unsold",
+    "type": "magento-module",
+    "license": "Open-Software-License-(OSL)",
+    "homepage": "",
+    "description": "Provide unsold product information of your store between selected dates.",
+    "authors": [
+    {
+        "name": "Vivek",
+        "email": "vivek.jha@galaxysofttech.co.in"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

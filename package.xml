@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Galaxy_Unsold</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">Open Software License (OSL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Provide unsold product information of your store between selected dates.</summary>
+    <description>This extension provides unsold products of your store between two given dates with views of that products between given dates and still its remain as unsold on your store.</description>
+    <notes>First release. </notes>
+    <authors><author><name>Vivek</name><user>galaxyweblinks</user><email>vivek.jha@galaxysofttech.co.in</email></author></authors>
+    <date>2014-04-26</date>
+    <time>05:51:49</time>
+    <contents><target name="magelocal"><dir name="Galaxy"><dir name="Unsoldproduct"><dir name="Block"><dir name="Adminhtml"><file name="Unsoldproduct.php" hash="2887dc6077abc0c26ed107d5ffc33a91"/></dir><file name="Unsoldproduct.php" hash="960589023be9b09d9b31e45873583f0d"/></dir><dir name="Helper"><file name="Data.php" hash="13436758ffacb3d31d914dc561d44061"/></dir><dir name="Model"><dir name="Mysql4"><dir name="Unsoldproduct"><file name="Collection.php" hash="87d87448519f1e28c500c1f053f8a36e"/></dir><file name="Unsoldproduct.php" hash="eb75ab1b143606c0d82fa51b7b8e5684"/></dir><file name="Status.php" hash="4a728b1fa487be343d54185ada49c12f"/><file name="Unsoldproduct.php" hash="b3a5eeecc1a3041b831a62576d206127"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="IndexController.php" hash="3b8f77804a90c0c94dd24fbfdec5b881"/></dir><file name="IndexController.php" hash="3ca4fa6d25810381186b527d21625d35"/></dir><dir name="etc"><file name="config.xml" hash="a4b0daf24e5bf441a2dd086b69f3f134"/></dir><dir name="sql"><dir name="unsoldproduct_setup"><file name="blockmysql4-install-0.1.0.php" hash="04b12fe4ec2741bb8d080d8ad0e0773a"/></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="unsoldproduct"><file name="unsoldproduct.phtml" hash=""/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="moduels"><file name="Galaxy_Unsoldproduct.xml" hash=""/></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="unsoldproduct.xml" hash="16ced89eb5d9d6b8e75a89c05361d96d"/></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.0.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

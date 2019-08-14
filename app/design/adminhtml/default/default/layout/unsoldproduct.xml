@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout>
+    <unsoldproduct_adminhtml_index_index>
+        <update handle="unsoldproduct_index_index"/>
+        <reference name="content">
+            <block type="unsoldproduct/adminhtml_unsoldproduct" name="myadmin" template="unsoldproduct/unsoldproduct.phtml"/>
+        </reference>
+    </unsoldproduct_adminhtml_index_index>
+	<unsoldproduct_adminhtml_index_post>
+       
+        <reference name="content">
+            <block type="unsoldproduct/adminhtml_unsoldproduct" name="myadmin" template="unsoldproduct/unsoldproduct.phtml"/>
+        </reference>
+    </unsoldproduct_adminhtml_index_post>
+</layout>
