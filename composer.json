@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/Galaxy_Unsold",
+    "name": "openmage-module-fostering\/galaxy_unsold",
     "type": "magento-module",
-    "license": "Open-Software-License-(OSL)",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "Business intelligent information about the products in an online store that have been unsold for some time ",
     "authors": [
